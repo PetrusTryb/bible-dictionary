@@ -1,1 +1,1 @@
-# bible-dictionary
+# BibliOS
