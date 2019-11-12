@@ -14,6 +14,7 @@ var firebaseConfig = {
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
+  'credentialHelper': firebaseui.auth.CredentialHelper.NONE
 });
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
