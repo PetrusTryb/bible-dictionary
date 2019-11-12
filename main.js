@@ -41,6 +41,8 @@ $("#container-main").append(template);
   }
   db.collection("definitions").get().then((querySnapshot) => {
     let searchQuery = location.href.split("?search=")[1];
+    if(searchQuery)
+      searchQuery=decodeURI(searchQuery).toLowerCase();
     querySnapshot.forEach((doc) => {
         if(doc.data().keywords.includes(searchQuery)||searchQuery==undefined)
         makeCard(doc.data());
@@ -49,7 +51,7 @@ $("#container-main").append(template);
     $("#container-main").removeClass("hide");
     M.AutoInit();
     $(".badge").on("click",function(event){
-      location.href="?query="+event.target.innerText;
+      location.href="?search="+event.target.innerText;
     })
 });
   $("#loginButton").on("click",function(){
