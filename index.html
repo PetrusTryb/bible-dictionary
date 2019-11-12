@@ -6,19 +6,23 @@
     <link rel="stylesheet" href="style.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
   integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
   crossorigin="anonymous"></script>
 <script defer src="main.js"></script>
 <meta name="viewport" content="width=device-width">
+<link rel="icon" type="image/png" href="icon.png" sizes="32x32">
 </head>
-<body class="green lighten-5">
+<body class="grey darken-5">
 	<nav>
     <div class="nav-wrapper grey darken-4">
-      <a href="index.html" class="brand-logo">BibliOS</a>
+      <a href="index.html" class="brand-logo"><img src="icon.png">BibliOS</a>
     </div>
   </nav>
   <nav>
@@ -32,8 +36,13 @@
       </form>
     </div>
   </nav>
-
-   <article class="container" id="container-main"></article>
+   <article class="container center-align" id="container-loader"><img src="icon.svg" class="responsive-img"></article>
+   <article class="container hide center-align" id="container-main"><h1 class="flow-text">Witaj w aplikacji BibliOS!</h1><p>Możesz się rozejrzeć, wyszukać lub przejrzeć dostępne kategorie.</p></article>
+   <div id="loginModal" class="modal">
+     <div class="modal-content">
+       <div id="loginFrame"></div>
+     </div>
+   </div>
    <div id="addModal" class="modal">
     <div class="modal-content">
       <h4>Dodawanie wpisu</h4>
@@ -63,10 +72,10 @@
     </div>
     <div class="modal-footer">
     	<a class="modal-close waves-effect waves-red btn-flat">Anuluj</a>
-      	<a class="modal-close waves-effect waves-green btn-flat" id="addButton">Dodaj</a>
+      <a class="modal-close waves-effect waves-green btn-flat" id="addButton">Dodaj</a>
     </div>
   </div>
-<div class="fixed-action-btn modal-trigger" href="#addModal">
+<div class="fixed-action-btn modal-trigger hide" href="#addModal">
   <a class="btn-floating btn-large red">
     <i class="large material-icons">mode_edit</i>
   </a>
@@ -84,7 +93,7 @@
           <div class="footer-copyright">
             <div class="container">
             &copy; Piotr Trybisz 2019
-            <a class="grey-text text-lighten-4 right" href="https://github.com/PetrusTryb/bible-dictionary" target="_blank">Zobacz kod źródłowy</a>
+            <a class="grey-text text-lighten-4 right" href="https://github.com/PetrusTryb/bible-dictionary" target="_blank">Zobacz kod źródłowy</a><br/><a class="grey-text text-lighten-4 right" id="loginButton">Logowanie administracyjne</a>
           </div>
     </div>
 </footer>

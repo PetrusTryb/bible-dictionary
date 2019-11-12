@@ -7,3 +7,7 @@ body {
 article {
     flex: 1 0 auto;
 }
+.card-content{
+	background: rgb(110,133,199);
+	background: linear-gradient(180deg, rgba(110,133,199,1) 0%, rgba(0,185,124,1) 96%);
+}
