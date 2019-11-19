@@ -27,12 +27,15 @@
   </nav>
   <nav>
   	<div class="nav-wrapper grey darken-3">
-      <form method="GET" action="index.html">
-        <div class="input-field">
-          <input id="search" name="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
+      <form method="GET" action="index.html" id="sForm">
+          <select id="search" name="search">
+            <option disabled selected>Kategorie...</option>
+            <option value="">Wszystkie kategorie</option>
+            <option value="OGÓLNE">Ogólne</option>
+            <option value="KSIĘGI">Księgi</option>
+            <option value="POSTACIE">Postacie</option>
+            <option value="WYDARZENIA">Wydarzenia</option>
+          </select>
       </form>
     </div>
   </nav>
@@ -62,9 +65,14 @@
     </div>
         <div class="row">
     			<div class="input-field col s12">
-          <input placeholder="Słowa kluczowe" id="keywords_input" type="text">
+          <select id="keywords_input">
+            <option value="ogólne">Ogólne</option>
+            <option value="księgi">Księgi</option>
+            <option value="postacie">Postacie</option>
+            <option value="wydarzenia">Wydarzenia</option>
+          </select>
           <label for="keywords_input">Słowa kluczowe</label>
-          <p>Rozdzielaj słowa kluczowe średnikiem.</p>
+          <p>Wybierz odpowiednią kategorię z listy.</p>
         </div>
     		</div>
     	</form>

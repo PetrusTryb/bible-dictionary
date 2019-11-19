@@ -44,7 +44,7 @@ $("#container-main").append(template);
     if(searchQuery)
       searchQuery=decodeURI(searchQuery).toLowerCase();
     querySnapshot.forEach((doc) => {
-        if(doc.data().keywords.includes(searchQuery)||searchQuery==undefined)
+        if(doc.data().keywords.includes(searchQuery)||searchQuery==undefined||searchQuery=="")
         makeCard(doc.data());
     });
     $("#container-loader").hide();
@@ -79,4 +79,7 @@ let name = $("#name_input").val();
 }catch(error){
   M.toast({html:error.message});
 }
+})
+$("#search").on("change",function(){
+  $("#sForm").submit();
 })
